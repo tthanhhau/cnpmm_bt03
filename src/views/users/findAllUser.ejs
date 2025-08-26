@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head><title>Users</title></head>
+<body>
+  <h1>All Users</h1>
+  <table border="1" cellpadding="8">
+    <tr>
+      <th>ID</th><th>Name</th><th>Email</th><th>Address</th><th>Actions</th>
+    </tr>
+    <% users.forEach(u => { %>
+      <tr>
+        <td><%= u.id %></td>
+        <td><%= u.firstName %> <%= u.lastName %></td>
+        <td><%= u.email %></td>
+        <td><%= u.address || "" %></td>
+        <td>
+          <a href="/edit-user?id=<%= u.id %>">Edit</a> |
+          <a href="/delete-user?id=<%= u.id %>" onclick="return confirm('Delete?')">Delete</a>
+        </td>
+      </tr>
+    <% }) %>
+  </table>
+  <p><a href="/crud">Create new</a></p>
+</body>
+</html>
